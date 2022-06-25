@@ -1,24 +1,25 @@
-<form>
-<div class="editContact">
-  <div>
+
+    <form class="editContact">
     <div>
-      <label for="name">Name</label>
+      <div>
+        <label for="name">Name</label>
+      </div>
+      <input name="name" type="text" value="{{name}}" [(ngModel)]="editName" />
     </div>
-    <input name="name" type="text" value="{{name}}"  [(ngModel)]="editName" />
-  </div>
-  <div>
     <div>
-      <label for="phone" >Phone</label>
+      <div>
+        <label for="phone">Phone</label>
+      </div>
+      <input name="phone" type="text" value="{{phone}}" [(ngModel)]="editPhone" />
     </div>
-    <input name="phone" type="text" value="{{phone}}"  [(ngModel)]="editPhone"/>
+    <div *ngIf="name===''">
+      <button class="editContactButton" (click)="addContact()">Add</button>
+    </div>
+    <div *ngIf="name!==''">
+      <button class="editContactButton" (click)="editContact()">Edit</button>
+    </div>
+  </form>
+  <div *ngIf="errorMessage" class="error">
+    <div [innerHTML]="errorMessage"></div>
   </div>
-  <div *ngIf="name===''">
-    <button class="editContactButton" (click)="addContact()">Add</button>
-  </div>
-  <div *ngIf="name!==''">
-    <button class="editContactButton" (click)="editContact()">Edit</button>
-  </div>
-</div>
-<div [innerHTML]="errorMessage"></div>
-</form>
 
