@@ -12,6 +12,7 @@ export class EditPhonebookItemComponent implements OnInit {
   @Input('phone') phone: string = '';
   editName: string = this.name;
   editPhone: string = this.phone;
+  errorMessage: string = '';
 
   constructor(private contactService: ContactsService) {}
 
@@ -23,9 +24,15 @@ export class EditPhonebookItemComponent implements OnInit {
       phone: this.editPhone,
     };
 
-    this.contactService.addContact(contact).subscribe((data: any) => {
-      console.log(data)
-    });
+    this.contactService.addContact(contact).subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (error) => {
+        console.error('error caught in component');
+        this.errorMessage = error.error;
+      }
+    );
   };
 
   editContact = () => {};
