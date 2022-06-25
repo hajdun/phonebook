@@ -1,0 +1,12 @@
+.card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 600px;
+  background-color: aquamarine;
+  padding: 20px;
+  margin-bottom: 30px;
+  &:hover {
+    background-color: rgb(88, 245, 193);
+  }
+}

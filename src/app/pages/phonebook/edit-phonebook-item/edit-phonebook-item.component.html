@@ -1,0 +1,20 @@
+<div class="editContact">
+  <div>
+    <div>
+      <label for="name">Name</label>
+    </div>
+    <input name="name" type="text" value="{{name}}" />
+  </div>
+  <div>
+    <div>
+      <label for="phone">Phone</label>
+    </div>
+    <input name="phone" type="text" value="{{phone}}" />
+  </div>
+  <div *ngIf="name===''">
+    <button class="editContactButton">Add</button>
+  </div>
+  <div *ngIf="name!==''">
+    <button class="editContactButton">Edit</button>
+  </div>
+</div>

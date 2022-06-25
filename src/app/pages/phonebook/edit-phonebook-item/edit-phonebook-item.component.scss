@@ -1,0 +1,19 @@
+.editContact{
+  width: 600px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+
+  .editContactButton {
+    font-weight: bold;
+    width: 150px;
+    height: 30px;
+    border: none;
+    padding: 3px;
+    &:hover {
+      background-color: cadetblue;
+    }
+  }
+}
