@@ -1,7 +1,7 @@
 <div class="phonebookPage">
   <div class="title">Phonebook</div>
   <div *ngFor="let contact of contacts; index as i;">
-    <app-phonebook-item name="{{contact.name}}" phone="{{contact.phone}}"></app-phonebook-item>
+    <app-phonebook-item id="{{contact.id}}" name="{{contact.name}}" phone="{{contact.phone}}"></app-phonebook-item>
   </div>
   <div>
     <app-edit-phonebook-item></app-edit-phonebook-item>

@@ -16,4 +16,8 @@ export class ContactsService {
   addContact=(contact:IContact)=>{
     return this.http.post('http://localhost:3001/contacts', contact)
   }
+
+  deleteContact=(contactId:string)=>{
+    return this.http.delete(`http://localhost:3001/contacts/${contactId}`)
+  }
 }
