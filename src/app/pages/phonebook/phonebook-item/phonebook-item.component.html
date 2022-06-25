@@ -1,4 +1,4 @@
-<div class="card">
+<div *ngIf="isEditMode==false" class="card">
   <div class="contactInfo">
     <div class="contactName">
       {{name}}
@@ -12,8 +12,13 @@
       Delete
     </div>
 
-    <div class="edit">
+    <div class="edit" (click)="editContact()">
       Edit
     </div>
   </div>
 </div>
+
+
+<div *ngIf="isEditMode==true">
+  <app-edit-phonebook-item id="{{id}}" name="{{name}}" phone="{{phone}}"></app-edit-phonebook-item>
+ </div>

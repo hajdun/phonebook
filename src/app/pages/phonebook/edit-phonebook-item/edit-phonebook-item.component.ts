@@ -8,11 +8,10 @@ import { ContactsService } from 'src/app/core/contacts.service';
   styleUrls: ['./edit-phonebook-item.component.scss'],
 })
 export class EditPhonebookItemComponent implements OnInit {
+  @Input('id') id: string = '';
   @Input('name') name: string = '';
   @Input('phone') phone: string = '';
-  editName: string = this.name;
-  editPhone: string = this.phone;
-  errorMessage:any=null;
+  errorMessage: any = null;
 
   constructor(private contactService: ContactsService) {}
 
@@ -20,8 +19,8 @@ export class EditPhonebookItemComponent implements OnInit {
 
   addContact = () => {
     const contact: IContact = {
-      name: this.editName,
-      phone: this.editPhone,
+      name: this.name,
+      phone: this.phone,
     };
 
     this.contactService.addContact(contact).subscribe(
@@ -35,5 +34,21 @@ export class EditPhonebookItemComponent implements OnInit {
     );
   };
 
-  editContact = () => {};
+  editContact = () => {
+    const contact: IContact = {
+      id: this.id,
+      name: this.name,
+      phone: this.phone,
+    };
+
+    this.contactService.editContact(contact).subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (error) => {
+        console.error('error caught in component');
+        this.errorMessage = error.error;
+      }
+    );
+  };
 }

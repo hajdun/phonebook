@@ -3,20 +3,20 @@
     <div>
       <label for="name">Name</label>
     </div>
-    <input class="textInput name" name="name" type="text" value="{{name}}" [(ngModel)]="editName" />
+    <input class="textInput name" name="name" type="text" value="{{name}}" [(ngModel)]="name" />
   </div>
   <div>
     <div>
       <label for="phone">Phone</label>
     </div>
-    <input class="textInput phone" name="phone" type="text" value="{{phone}}" [(ngModel)]="editPhone" />
+    <input class="textInput phone" name="phone" type="text" value="{{phone}}" [(ngModel)]="phone" />
   </div>
 </form>
 <div class="editContact editButtons">
-  <div *ngIf="name===''">
+  <div *ngIf="name==''">
     <button class="editContactButton" (click)="addContact()">Add contact</button>
   </div>
-  <div *ngIf="name!==''">
+  <div *ngIf="name!=''">
     <button class="editContactButton" (click)="editContact()">Edit contact</button>
   </div>
 </div>

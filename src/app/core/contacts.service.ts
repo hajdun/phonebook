@@ -20,4 +20,8 @@ export class ContactsService {
   deleteContact=(contactId:string)=>{
     return this.http.delete(`http://localhost:3001/contacts/${contactId}`)
   }
+
+  editContact=(contact:IContact)=>{
+    return this.http.put(`http://localhost:3001/contacts/${contact.id}`, contact)
+  }
 }
