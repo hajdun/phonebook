@@ -19,6 +19,6 @@
     <button class="editContactButton" (click)="editContact()">Edit</button>
   </div>
 </div>
-<div>{{errorMessage}}</div>
+<div [innerHTML]="errorMessage"></div>
 </form>
 

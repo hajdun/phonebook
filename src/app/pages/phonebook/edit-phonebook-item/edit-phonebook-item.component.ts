@@ -12,7 +12,7 @@ export class EditPhonebookItemComponent implements OnInit {
   @Input('phone') phone: string = '';
   editName: string = this.name;
   editPhone: string = this.phone;
-  errorMessage: string = '';
+  errorMessage:any=null;
 
   constructor(private contactService: ContactsService) {}
 
