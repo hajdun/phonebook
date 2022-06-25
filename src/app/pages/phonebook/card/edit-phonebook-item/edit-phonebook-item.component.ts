@@ -1,6 +1,6 @@
-import { IContact } from './../../../types/Contact';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ContactsService } from 'src/app/core/contacts.service';
+import { IContact } from 'src/app/types/Contact';
 
 @Component({
   selector: 'app-edit-phonebook-item',
