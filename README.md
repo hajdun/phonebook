@@ -2,9 +2,23 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.3.
 
+# Description
+
+A client to manage contact info.
+It has a main page where the people are listed with the names and phone numbers
+On each person row there is a way to edit it (with an edit button or something) and a delete button
+You can add people to the list
+You can search by name (if you have time, also by phone number, but one of them is enough)
+Multiple names can be the same, but the phone numbers should be unique
+There is a login page, and you can only access your app if you gave the right credentials, and once you login It saves some mock token to a cookie so we dont have to log in every time we reload.
+
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Run `ng serve` or `npm run dev` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+
+## Backend
+
+There is a small express server to manage contacts. TODO: link here
 
 ## Code scaffolding
 
