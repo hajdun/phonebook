@@ -14,11 +14,11 @@ There is a login page, and you can only access your app if you gave the right cr
 
 ## Development server
 
-Run `ng serve` or `npm run dev` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Run `ng serve` or `npm run start` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 ## Backend
 
-There is a small express server to manage contacts. TODO: link here
+There is a small express server to manage contacts. [https://github.com/hajdun/contact-api](Backend)
 
 ## Code scaffolding
 
