@@ -21,4 +21,7 @@ export class PhonebookPageComponent implements OnInit {
     });
   }
 
+  onRefreshData=(data:any)=>{
+    this.contacts = data
+  }
 }

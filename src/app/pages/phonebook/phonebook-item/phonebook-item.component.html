@@ -20,5 +20,5 @@
 
 
 <div *ngIf="isEditMode==true">
-  <app-edit-phonebook-item id="{{id}}" name="{{name}}" phone="{{phone}}"></app-edit-phonebook-item>
+  <app-edit-phonebook-item id="{{id}}" name="{{name}}" phone="{{phone}}" (editFinished)="editDone()" (refreshData)="onRefreshData($event)"></app-edit-phonebook-item>
  </div>

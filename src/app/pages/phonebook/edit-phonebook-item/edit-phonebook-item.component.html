@@ -13,11 +13,11 @@
   </div>
 </form>
 <div class="editContact editButtons">
-  <div *ngIf="name==''">
+  <div *ngIf="id==''">
     <button class="editContactButton" (click)="addContact()">Add contact</button>
   </div>
-  <div *ngIf="name!=''">
-    <button class="editContactButton" (click)="editContact()">Edit contact</button>
+  <div *ngIf="id!=''">
+    <button class="editContactButton" (click)="editContact()">Save contact edit</button>
   </div>
 </div>
 <div *ngIf="errorMessage" class="error">

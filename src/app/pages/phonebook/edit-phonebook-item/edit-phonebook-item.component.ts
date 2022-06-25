@@ -1,5 +1,5 @@
 import { IContact } from './../../../types/Contact';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ContactsService } from 'src/app/core/contacts.service';
 
 @Component({
@@ -12,6 +12,9 @@ export class EditPhonebookItemComponent implements OnInit {
   @Input('name') name: string = '';
   @Input('phone') phone: string = '';
   errorMessage: any = null;
+  @Output() refreshData: EventEmitter<IContact[]> = new EventEmitter();
+  @Output() editFinished: EventEmitter<boolean> = new EventEmitter(false);
+
 
   constructor(private contactService: ContactsService) {}
 
@@ -25,7 +28,8 @@ export class EditPhonebookItemComponent implements OnInit {
 
     this.contactService.addContact(contact).subscribe(
       (data) => {
-        console.log(data);
+        this.refreshData.emit(data as IContact[]);
+        this.editFinished.emit(true)
       },
       (error) => {
         console.error('error caught in component');
@@ -43,11 +47,13 @@ export class EditPhonebookItemComponent implements OnInit {
 
     this.contactService.editContact(contact).subscribe(
       (data) => {
-        console.log(data);
+        this.refreshData.emit(data as IContact[]);
+        this.editFinished.emit(true)
       },
       (error) => {
         console.error('error caught in component');
         this.errorMessage = error.error;
+        this.editFinished.emit(true)
       }
     );
   };
