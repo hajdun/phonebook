@@ -1,22 +1,45 @@
-.editContact{
+.editContact {
   width: 600px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
-  background-color: beige;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
+  background-color: rgb(152, 158, 156);
 
   .editContactButton {
     font-weight: bold;
-    width: 150px;
-    height: 30px;
+    width: 400px;
+    height: 35px;
     border: none;
     padding: 3px;
+
     &:hover {
       background-color: cadetblue;
     }
   }
+}
+
+.textInput {
+  border: none;
+  height: 30px;
+}
+
+.name {
+  width: 290px;
+}
+
+.phone {
+  width: 290px;
+}
+
+.editButtons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 20px;
 }
 
 .error {

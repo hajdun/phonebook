@@ -1,25 +1,25 @@
-
-    <form class="editContact">
+<form class="editContact">
+  <div>
     <div>
-      <div>
-        <label for="name">Name</label>
-      </div>
-      <input name="name" type="text" value="{{name}}" [(ngModel)]="editName" />
+      <label for="name">Name</label>
     </div>
-    <div>
-      <div>
-        <label for="phone">Phone</label>
-      </div>
-      <input name="phone" type="text" value="{{phone}}" [(ngModel)]="editPhone" />
-    </div>
-    <div *ngIf="name===''">
-      <button class="editContactButton" (click)="addContact()">Add</button>
-    </div>
-    <div *ngIf="name!==''">
-      <button class="editContactButton" (click)="editContact()">Edit</button>
-    </div>
-  </form>
-  <div *ngIf="errorMessage" class="error">
-    <div [innerHTML]="errorMessage"></div>
+    <input class="textInput name" name="name" type="text" value="{{name}}" [(ngModel)]="editName" />
   </div>
-
+  <div>
+    <div>
+      <label for="phone">Phone</label>
+    </div>
+    <input class="textInput phone" name="phone" type="text" value="{{phone}}" [(ngModel)]="editPhone" />
+  </div>
+</form>
+<div class="editContact editButtons">
+  <div *ngIf="name===''">
+    <button class="editContactButton" (click)="addContact()">Add contact</button>
+  </div>
+  <div *ngIf="name!==''">
+    <button class="editContactButton" (click)="editContact()">Edit contact</button>
+  </div>
+</div>
+<div *ngIf="errorMessage" class="error">
+  <div [innerHTML]="errorMessage"></div>
+</div>

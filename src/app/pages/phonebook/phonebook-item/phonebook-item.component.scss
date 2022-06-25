@@ -3,10 +3,32 @@
   flex-direction: row;
   justify-content: space-between;
   width: 600px;
-  background-color: aquamarine;
+  background-color: rgb(187, 244, 225);
   padding: 20px;
   margin-bottom: 30px;
   &:hover {
-    background-color: rgb(88, 245, 193);
+    background-color: rgb(114, 238, 196);
   }
 }
+
+.contactInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .contactName {
+    width: 250px;
+    margin-right: 40px;
+  }
+}
+
+.contactEdit  {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .delete{
+    margin-right: 40px;
+  }
+}
+
