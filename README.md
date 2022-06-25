@@ -18,7 +18,7 @@ Run `ng serve` or `npm run start` for a dev server. Navigate to `http://localhos
 
 ## Backend
 
-There is a small express server to manage contacts. (https://github.com/hajdun/contact-api)[Backend]
+There is a small express server to manage contacts. [Backend](https://github.com/hajdun/contact-api)
 
 ## Code scaffolding
 
