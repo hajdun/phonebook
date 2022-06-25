@@ -3,13 +3,13 @@
     <div>
       <label for="name">Name</label>
     </div>
-    <input class="textInput name" name="name" type="text" value="{{name}}" [(ngModel)]="name" />
+    <input class="textInput name" name="name" type="text" [(ngModel)]="name" />
   </div>
   <div>
     <div>
       <label for="phone">Phone</label>
     </div>
-    <input class="textInput phone" name="phone" type="text" value="{{phone}}" [(ngModel)]="phone" />
+    <input class="textInput phone" name="phone" type="tel" [(ngModel)]="phone" />
   </div>
 </form>
 <div class="editContact editButtons">
