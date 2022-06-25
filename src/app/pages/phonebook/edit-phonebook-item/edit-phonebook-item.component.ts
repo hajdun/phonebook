@@ -1,17 +1,32 @@
+import { IContact } from './../../../types/Contact';
 import { Component, Input, OnInit } from '@angular/core';
+import { ContactsService } from 'src/app/core/contacts.service';
 
 @Component({
   selector: 'app-edit-phonebook-item',
   templateUrl: './edit-phonebook-item.component.html',
-  styleUrls: ['./edit-phonebook-item.component.scss']
+  styleUrls: ['./edit-phonebook-item.component.scss'],
 })
 export class EditPhonebookItemComponent implements OnInit {
-  @Input('name') name: string='';
-  @Input('phone') phone: string='';
+  @Input('name') name: string = '';
+  @Input('phone') phone: string = '';
+  editName: string = this.name;
+  editPhone: string = this.phone;
 
-  constructor() { }
+  constructor(private contactService: ContactsService) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
+  addContact = () => {
+    const contact: IContact = {
+      name: this.editName,
+      phone: this.editPhone,
+    };
+
+    this.contactService.addContact(contact).subscribe((data: any) => {
+      console.log(data)
+    });
+  };
+
+  editContact = () => {};
 }

@@ -8,6 +8,7 @@ import { PhonebookPageComponent } from './pages/phonebook/phonebook-page/phonebo
 import { PhonebookItemComponent } from './pages/phonebook/phonebook-item/phonebook-item.component';
 import { EditPhonebookItemComponent } from './pages/phonebook/edit-phonebook-item/edit-phonebook-item.component';
 import { LoginPageComponent } from './pages/login/login-page/login-page.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { LoginPageComponent } from './pages/login/login-page/login-page.componen
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

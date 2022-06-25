@@ -19,7 +19,6 @@ export class PhonebookPageComponent implements OnInit {
     this.contactService.getContacts().subscribe((data: any) =>{
       this.contacts = data
     });
-
   }
 
 }
