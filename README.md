@@ -16,6 +16,8 @@ There is a login page, and you can only access your app if you gave the right cr
 
 Run `ng serve` or `npm run start` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
+Github deployment steps are as on https://www.c-sharpcorner.com/blogs/a-guide-on-how-to-deploy-angular-applications-to-github-pages
+
 ## Backend
 
 There is a small express server to manage contacts. [Backend](https://github.com/hajdun/contact-api)
