@@ -1,0 +1,20 @@
+<form class="editContact">
+  <div>
+    <div>
+      <label for="name">User name</label>
+    </div>
+    <input class="textInput userName" name="userName" type="text" [(ngModel)]="userName" />
+  </div>
+  <div>
+    <div>
+      <label for="password">Password</label>
+    </div>
+    <input class="textInput password" name="password" type="password" [(ngModel)]="password" />
+  </div>
+</form>
+<div class="loginButton">
+    <button class="loginButton" (click)="login()">Login</button>
+</div>
+<div *ngIf="errorMessage" class="error">
+  <div [innerHTML]="errorMessage"></div>
+</div>

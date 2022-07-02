@@ -1,5 +1,5 @@
 <div class="phonebookPage">
-  <div class="title">Phonebook</div>
+  <h1 class="title">Phonebook</h1>
   <div *ngFor="let contact of contacts; index as i;">
     <app-phonebook-item id="{{contact.id}}" name="{{contact.name}}" phone="{{contact.phone}}" (refreshData)="onRefreshData($event)"></app-phonebook-item>
   </div>

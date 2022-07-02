@@ -9,6 +9,7 @@ import { LoginPageComponent } from './pages/login/login-page/login-page.componen
 import { FormsModule } from '@angular/forms';
 import { EditPhonebookItemComponent } from './pages/phonebook/card/edit-phonebook-item/edit-phonebook-item.component';
 import { PhonebookItemComponent } from './pages/phonebook/card/phonebook-item/phonebook-item.component';
+import { LoginFormComponent } from './pages/login/login-form/login-form.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { PhonebookItemComponent } from './pages/phonebook/card/phonebook-item/ph
     PhonebookPageComponent,
     PhonebookItemComponent,
     EditPhonebookItemComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    LoginFormComponent
   ],
   imports: [
     BrowserModule,
