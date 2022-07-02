@@ -3,23 +3,32 @@
     <div>
       <label for="name">Name</label>
     </div>
-    <input class="textInput name" name="name" type="text" [(ngModel)]="name" />
+    <input class="textInput name" name="name" type="text" [formControl]="inputName" required/>
   </div>
   <div>
     <div>
       <label for="phone">Phone</label>
     </div>
-    <input class="textInput phone" name="phone" type="tel" [(ngModel)]="phone" />
+    <input class="textInput phone" name="phone" type="tel" [formControl]="inputPhone" pattern="^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$" required />
   </div>
 </form>
 <div class="editContact editButtons">
   <div *ngIf="id==''">
-    <button class="editContactButton" (click)="addContact()">Add contact</button>
+    <button type="submit" class="editContactButton" (click)="addContact()">Add contact</button>
   </div>
   <div *ngIf="id!=''">
-    <button class="editContactButton" (click)="editContact()">Save contact edit</button>
+    <button type="submit" class="editContactButton" (click)="editContact()">Save contact edit</button>
   </div>
 </div>
+
 <div *ngIf="errorMessage" class="error">
   <div [innerHTML]="errorMessage"></div>
+</div>
+<div *ngIf="isNameFieldInvalid()|| isPhoneFieldInvalid()" class="error">
+  <div *ngIf="isNameFieldInvalid()">
+    Something is wrong with the name.
+  </div>
+  <div *ngIf="isPhoneFieldInvalid()">
+    Something is wrong with the phone number.
+  </div>
 </div>

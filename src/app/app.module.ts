@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PhonebookPageComponent } from './pages/phonebook/phonebook-page/phonebook-page.component';
 import { LoginPageComponent } from './pages/login/login-page/login-page.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { EditPhonebookItemComponent } from './pages/phonebook/card/edit-phonebook-item/edit-phonebook-item.component';
 import { PhonebookItemComponent } from './pages/phonebook/card/phonebook-item/phonebook-item.component';
 import { LoginFormComponent } from './pages/login/login-form/login-form.component';
@@ -24,7 +24,8 @@ import { LoginFormComponent } from './pages/login/login-form/login-form.componen
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

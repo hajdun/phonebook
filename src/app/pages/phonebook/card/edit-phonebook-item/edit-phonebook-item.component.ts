@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 import { ContactsService } from 'src/app/core/contacts.service';
 import { IContact } from 'src/app/types/Contact';
 
@@ -11,25 +12,42 @@ export class EditPhonebookItemComponent implements OnInit {
   @Input('id') id: string = '';
   @Input('name') name: string = '';
   @Input('phone') phone: string = '';
+  inputName =new FormControl(this.name, [Validators.required, Validators.minLength(4)]);
+  inputPhone =new FormControl(this.phone, [Validators.required, Validators.minLength(4)]);
   errorMessage: any = null;
   @Output() refreshData: EventEmitter<IContact[]> = new EventEmitter();
   @Output() editFinished: EventEmitter<boolean> = new EventEmitter(false);
-
+  formSubmitAttempt=false;
 
   constructor(private contactService: ContactsService) {}
 
-  ngOnInit(): void {}
+  resetData() {
+    this.inputName.setValue('');
+    this.inputPhone.setValue('');
+    this.inputName.setErrors(null)
+    this.inputPhone.setErrors(null)
+    this.errorMessage=null;
+  }
+
+  ngOnInit(): void {
+    if (!this.id) {
+      this.resetData();
+    }
+  }
 
   addContact = () => {
+    this.formSubmitAttempt = true;
+    if(this.isNameFieldInvalid() || this.isPhoneFieldInvalid()) return
     const contact: IContact = {
-      name: this.name,
-      phone: this.phone,
+      name: this.inputName.value || '',
+      phone: this.inputPhone.value || '',
     };
 
     this.contactService.addContact(contact).subscribe(
       (data) => {
         this.refreshData.emit(data as IContact[]);
-        this.editFinished.emit(true)
+        this.editFinished.emit(true);
+        this.resetData();
       },
       (error) => {
         console.error('error caught in component');
@@ -39,22 +57,44 @@ export class EditPhonebookItemComponent implements OnInit {
   };
 
   editContact = () => {
+    this.formSubmitAttempt = true;
+    if(this.isNameFieldInvalid() || this.isPhoneFieldInvalid()) return
+
     const contact: IContact = {
       id: this.id,
-      name: this.name,
-      phone: this.phone,
+      name: this.inputName.value || '',
+      phone: this.inputPhone.value || '',
     };
 
     this.contactService.editContact(contact).subscribe(
       (data) => {
         this.refreshData.emit(data as IContact[]);
-        this.editFinished.emit(true)
+        this.editFinished.emit(true);
+        this.resetData();
       },
       (error) => {
         console.error('error caught in component');
         this.errorMessage = error.error;
-        this.editFinished.emit(true)
+        this.editFinished.emit(true);
       }
     );
   };
+
+  isNameFieldInvalid() {
+    return !this.inputName.valid && (this.inputName.touched ||
+      this.formSubmitAttempt);
+  }
+
+  /**
+   * some valid numbers
+   * 123-456-7890
+   * (123) 456-7890
+   * 123 456 7890
+   * 123.456.7890
+   * +91 (123) 456-7890
+   */
+  isPhoneFieldInvalid() {
+    return !this.inputPhone.valid && (this.inputPhone.touched ||
+      this.formSubmitAttempt);
+  }
 }

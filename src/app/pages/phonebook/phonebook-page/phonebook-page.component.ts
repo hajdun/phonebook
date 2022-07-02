@@ -5,23 +5,20 @@ import { IContact } from 'src/app/types/Contact';
 @Component({
   selector: 'app-phonebook-page',
   templateUrl: './phonebook-page.component.html',
-  styleUrls: ['./phonebook-page.component.scss']
+  styleUrls: ['./phonebook-page.component.scss'],
 })
-
 export class PhonebookPageComponent implements OnInit {
-  contacts:IContact[]=[];
+  contacts: IContact[] = [];
 
-  constructor(private contactService: ContactsService) {
-
-  }
+  constructor(private contactService: ContactsService) {}
 
   ngOnInit(): void {
-    this.contactService.getContacts().subscribe((data: any) =>{
-      this.contacts = data
+    this.contactService.getContacts().subscribe((data: IContact[]) => {
+      this.contacts = data;
     });
   }
 
-  onRefreshData=(data:any)=>{
-    this.contacts = data
-  }
+  onRefreshData = (data: IContact[]) => {
+    this.contacts = data;
+  };
 }
