@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/core/login.service';
+import { CookieService } from 'ngx-cookie-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-form',
@@ -9,13 +11,21 @@ import { LoginService } from 'src/app/core/login.service';
 export class LoginFormComponent implements OnInit {
   userName = '';
   password = '';
-  errorMessage=''
+  errorMessage = '';
 
-  constructor(private loginService: LoginService) {}
+  constructor(
+    private loginService: LoginService,
+    private cookieService: CookieService,
+    private router: Router
+    ) {}
 
   ngOnInit(): void {}
 
   login() {
-    this.loginService.login()
+    const token = this.loginService.login(this.userName, this.password);
+    if (token) {
+      this.cookieService.set('Auth', token);
+      this.router.navigate(['/contacts']);
+    }
   }
 }
