@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { EditPhonebookItemComponent } from './pages/phonebook/card/edit-phonebook-item/edit-phonebook-item.component';
 import { PhonebookItemComponent } from './pages/phonebook/card/phonebook-item/phonebook-item.component';
 import { LoginFormComponent } from './pages/login/login-form/login-form.component';
+import { ContactFilterComponent } from './pages/phonebook/contact-filter/contact-filter.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { LoginFormComponent } from './pages/login/login-form/login-form.componen
     PhonebookItemComponent,
     EditPhonebookItemComponent,
     LoginPageComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    ContactFilterComponent
   ],
   imports: [
     BrowserModule,

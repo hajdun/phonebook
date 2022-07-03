@@ -14,6 +14,10 @@ export class ContactsService {
     return this.http.get<IContact[]>('http://localhost:3001/contacts');
   };
 
+  getContactsByName = (name:string|null) => {
+    return this.http.get<IContact[]>(`http://localhost:3001/contacts?filter=${name}`);
+  };
+
   addContact = (contact: IContact) => {
     return this.http.post('http://localhost:3001/contacts', contact);
   };
