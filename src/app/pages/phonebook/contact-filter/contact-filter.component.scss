@@ -1,6 +1,9 @@
 .filterContact {
-  width: 600px;
+  display: flex;
+  flex-direction: row;
   align-items: center;
+  justify-content: space-between;
+  width: 600px;
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 20px;
@@ -11,9 +14,9 @@
   .filterContactButton {
     font-weight: bold;
     width: 150px;
-    height: 35px;
     border: none;
     padding: 3px;
+    height: 35px;
 
     &:hover {
       background-color: cadetblue;
@@ -29,4 +32,19 @@
 
 .filterLabel {
   padding-right: 20px;
+}
+
+@media screen and (max-width: 600px) {
+  .filterContact {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .filterItem {
+    margin-bottom: 30px;
+  }
+
+  .filterContactButton{
+    width: 200px;
+  }
 }

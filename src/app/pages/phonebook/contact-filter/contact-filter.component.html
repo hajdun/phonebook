@@ -1,11 +1,11 @@
 <form class="filterContact">
-  <span class="filterLabel">
+  <div class="filterLabel filterItem">
     <label for="nameFilter">Filter by name</label>
-  </span>
-  <span>
+  </div>
+  <div class="filterItem">
     <input class="textInput nameFilter" name="nameFilter" type="text" [formControl]="filterByName" />
-  </span>
-  <span class="filterContact filterButtons">
+  </div>
+  <div class="filterButtons filterItem">
     <button class="filterContactButton" (click)="filterContacts()">Filter contacts</button>
-  </span>
+  </div>
 </form>
