@@ -18,6 +18,11 @@ Run `ng serve` or `npm run start` for a dev server. Navigate to `http://localhos
 
 Github deployment steps are as on https://www.c-sharpcorner.com/blogs/a-guide-on-how-to-deploy-angular-applications-to-github-pages
 
+```
+ ng build --base-href "https://hajdun.github.io/phonebook/"
+ npx angular-cli-ghpages --dir=dist/phonebook
+```
+
 ## Backend
 
 There is a small express server to manage contacts. [Backend](https://github.com/hajdun/contact-api)
