@@ -1,19 +1,21 @@
 <form class="login">
-  <div class="input">
-    <div class="label">
-      <label for="userName">User name</label>
+  <div class="formInputContainer">
+    <div class="input">
+      <div class="label">
+        <label for="userName">User name</label>
+      </div>
+      <input class="textInput userName" name="userName" type="text" [(ngModel)]="userName" />
     </div>
-    <input class="textInput userName" name="userName" type="text" [(ngModel)]="userName" />
-  </div>
-  <div class="input">
-    <div class="label">
-      <label for="password">Password</label>
+    <div class="input passwordInput">
+      <div class="label">
+        <label for="password">Password</label>
+      </div>
+      <input class="textInput password" name="password" type="password" [(ngModel)]="password" />
     </div>
-    <input class="textInput password" name="password" type="password" [(ngModel)]="password" />
+    <div>
+      <button class="loginButton" (click)="login()">Login</button>
+    </div>
   </div>
-  <div class="loginButton">
-    <button class="loginButton" (click)="login()">Login</button>
-</div>
 </form>
 <div *ngIf="errorMessage" class="error">
   <div [innerHTML]="errorMessage"></div>
