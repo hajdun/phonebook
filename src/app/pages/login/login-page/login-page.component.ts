@@ -17,7 +17,6 @@ export class LoginPageComponent implements OnInit {
   ngOnInit(): void {
     const currentUser = this.cookieService.get('Auth');
     if (currentUser) {
-        // authorised so return true
         this.router.navigate(['contacts'], { });
     }
   }

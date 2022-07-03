@@ -11,11 +11,10 @@
 
   .editContactButton {
     font-weight: bold;
-    width: 400px;
     height: 35px;
     border: none;
     padding: 3px;
-
+    width: 290px;
     &:hover {
       background-color: cadetblue;
     }
@@ -51,4 +50,11 @@
   padding-top: 10px;
   padding-bottom: 10px;
   font-weight: bold;
+}
+
+@media screen and (max-width: 600px) {
+  .editContact {
+    width: 400px;
+    flex-direction: column;
+  }
 }
