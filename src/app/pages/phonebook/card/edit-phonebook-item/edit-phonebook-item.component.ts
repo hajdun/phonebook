@@ -12,12 +12,12 @@ export class EditPhonebookItemComponent implements OnInit {
   @Input('id') id: string = '';
   @Input('name') name: string = '';
   @Input('phone') phone: string = '';
-  inputName =new FormControl(this.name, [Validators.required, Validators.minLength(4)]);
-  inputPhone =new FormControl(this.phone, [Validators.required, Validators.minLength(4)]);
+  inputName = new FormControl(this.name, [Validators.required, Validators.minLength(4)]);
+  inputPhone = new FormControl(this.phone, [Validators.required, Validators.minLength(4)]);
   errorMessage: any = null;
   @Output() refreshData: EventEmitter<IContact[]> = new EventEmitter();
   @Output() editFinished: EventEmitter<boolean> = new EventEmitter(false);
-  formSubmitAttempt=false;
+  formSubmitAttempt = false;
 
   constructor(private contactService: ContactsService) {}
 
@@ -26,18 +26,21 @@ export class EditPhonebookItemComponent implements OnInit {
     this.inputPhone.setValue('');
     this.inputName.setErrors(null)
     this.inputPhone.setErrors(null)
-    this.errorMessage=null;
+    this.errorMessage = null;
   }
 
   ngOnInit(): void {
     if (!this.id) {
       this.resetData();
+    } else {
+      this.inputName.setValue(this.name)
+      this.inputPhone.setValue(this.phone)
     }
   }
 
   addContact = () => {
     this.formSubmitAttempt = true;
-    if(this.isNameFieldInvalid() || this.isPhoneFieldInvalid()) return
+    if (this.isNameFieldInvalid() || this.isPhoneFieldInvalid()) return
     const contact: IContact = {
       name: this.inputName.value || '',
       phone: this.inputPhone.value || '',
@@ -58,7 +61,7 @@ export class EditPhonebookItemComponent implements OnInit {
 
   editContact = () => {
     this.formSubmitAttempt = true;
-    if(this.isNameFieldInvalid() || this.isPhoneFieldInvalid()) return
+    if (this.isNameFieldInvalid() || this.isPhoneFieldInvalid()) return
 
     const contact: IContact = {
       id: this.id,
